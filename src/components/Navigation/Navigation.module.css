@@ -3,6 +3,12 @@
   display: block;
   margin: 0 auto;
   padding: 0;
+  text-align: center;
+  &.hover {
+    transform: scale(1.05);
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
 }
 
 .Navigation_list {
@@ -15,18 +21,17 @@
   align-items: center;
   align-self: center;
   background-color: #94b9f5;
-
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 15px 10px 10px 10px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 .NavLink {
-  color: #200c7b;
+  color: #fdfdff;
+  font-size: var(--font-medium);
+  text-transform: uppercase;
 
   text-decoration: none;
   font-weight: bold;

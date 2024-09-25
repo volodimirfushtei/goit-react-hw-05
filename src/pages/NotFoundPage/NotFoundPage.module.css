@@ -1,0 +1,51 @@
+.nfimg {
+  width: 800px;
+  max-height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgb(184, 63, 63);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+.img_container {
+  display: flex;
+  height: 650%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  background-color: #5d5959;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+.link {
+  font-size: var(--font-medium);
+  font-weight: bolt;
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 0;
+  transition: background-color 0.3s ease;
+  &:hover {
+    color: rgba(50, 65, 233, 0.8);
+  }
+}
+.title {
+  font-size: var(--font-large);
+  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-top: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

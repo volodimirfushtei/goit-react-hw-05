@@ -1,36 +1,48 @@
 import s from "./MoviesPage.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-const MoviesPage = (onSubmit) => {
+import SearchForm from "../../components/SearchForm/SearchForm";
+
+const MoviesPage = ({ onSubmit }) => {
+  const { movieId } = useParams();
   const [query, setQuery] = useState("");
-  const placeholder = "Search movies by title";
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!query.trim()) {
-      toast.error("Введіть запит для пошуку");
-      return;
+
+  useEffect(() => {
+    if (!movieId) return;
+    const fetchMovieDetails = async () => {
+      try {
+        // Ваш запит API
+        console.log("Fetching movie details for ID:", movieId);
+      } catch (error) {
+        console.log(error, "Fetching movie details");
+        toast.error("Не вдалося отримати дані про фільм.");
+      }
+    };
+
+    fetchMovieDetails();
+  }, [movieId]);
+
+  useEffect(() => {
+    if (query.trim()) {
+      const fetchMovies = async () => {
+        try {
+          toast.success("Запит для пошуку успішно введено");
+          console.log("Search params:", { query });
+          onSubmit(query); // Викликаємо onSubmit з запитом
+        } catch (error) {
+          console.log(error, "Fetching movies");
+          toast.error("Не вдалося виконати пошук.");
+        }
+      };
+
+      fetchMovies();
     }
-
-    console.log("Search text:", query);
-
-    onSubmit(query);
-    setQuery("");
-  };
+  }, [query, onSubmit]);
 
   return (
     <div className={s.MoviesPage_w}>
-      <form className={s.form} onSubmit={handleSubmit}>
-        <input
-          className={s.searchBar_input}
-          type="text"
-          autoComplete="off"
-          autoFocus
-          value={query}
-          placeholder={placeholder}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Search images"
-        />
-      </form>
+      <SearchForm query={query} setQuery={setQuery} />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import MoviesPage from "./src/pages/MoviesPage/MoviesPage";
 import NotFoundPage from "./src/pages/NotFoundPage/NotFoundPage";
 import MovieDetailsPage from "./src/pages/MovieDetailsPage/MovieDetailsPage";
 import MovieCast from "./src/components/MovieCast/MovieCast";
-
+import MovieReviews from "./src/components/MovieReviews/MovieReviews";
 // 19ccb5d526bae3cf70acea6c2f2cc1d6
 
 // eyJhbGciOiJIUzI1NiJ9
@@ -23,8 +23,10 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
-          <Route path="/movies/:movieId/cast" element={<MovieCast />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

@@ -12,44 +12,17 @@
   box-shadow: 0 10 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
   cursor: pointer;
-  &:hover {
-    background-color: #94b9f5;
-  }
+
   border-radius: 5px;
-  &.loading {
-    opacity: 0.5;
-  }
-  &.error {
-    background-color: #f9d7d7;
-  }
-  &.empty {
-    background-color: #f2f2f2;
-    border: none;
-    cursor: not-allowed;
-    opacity: 0.5;
-    box-shadow: none;
-    transition: background-color 0.3s ease;
-  }
-  &.active {
-    background-color: #94b9f5;
-  }
 }
 .list_title {
   font-size: var(--font-large);
   margin-bottom: 5px;
   text-align: center;
   font-weight: bold;
-  color: #181616;
+  color: #252222;
   transition: color 0.3s ease;
-  &:hover {
-    color: #007bff;
-  }
-  &.active {
-    color: #007bff;
-  }
-  &.loading {
-    opacity: 0.5;
-  }
+
   text-align: center;
 }
 .movietitle {
@@ -62,24 +35,69 @@
   &:hover {
     color: #007bff;
   }
-  &.active {
-    color: #007bff;
-  }
-  &.loading {
-    opacity: 0.5;
-  }
+
   text-align: center;
 }
 .movieimage {
-  width: 220px;
-  height: auto;
+  width: 200px;
+  height: 280px;
   border-radius: 5px;
   object-fit: cover;
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.05);
   }
-  &.loading {
-    opacity: 0.5;
+}
+.loader {
+  margin: 0 auto;
+}
+.overview {
+  font-size: var(--font-small);
+  margin-bottom: 10px;
+  text-align: center;
+  color: #131212;
+  transition: color 0.3s ease;
+
+  /* Біжучий текст */
+
+  white-space: nowrap;
+  max-width: 200px;
+  box-sizing: border-box;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.Movieoverview_container {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(243, 242, 247);
+}
+.data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  color: #920707;
+  padding: 0;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 10 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: #94b9f5;
+  }
+  border-radius: 5px;
 }

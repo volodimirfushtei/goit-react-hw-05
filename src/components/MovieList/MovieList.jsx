@@ -1,7 +1,7 @@
 import s from "./MovieList.module.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import fetchMovies from "../../../src/servises/Api.js";
+import fetchApi from "../../servises/Api";
 import Loader from "../../../src/components/Loader/Loader";
 
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ const MovieList = () => {
     const loadMovies = async () => {
       setLoading(true);
       try {
-        const data = await fetchMovies();
+        const data = await fetchApi.fetchMovies();
         setMovies(data.results);
       } catch (error) {
         setError(error.message);

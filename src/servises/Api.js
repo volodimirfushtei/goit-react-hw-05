@@ -74,7 +74,9 @@ const fetchMovieSearch = async (query) => {
   }
 };
 
-export default fetchMovies;
-export { fetchMovieById };
-export { fetchMovieReviews };
-export { fetchMovieSearch };
+export default {
+  fetchMovies,
+  fetchMovieById,
+  fetchMovieReviews,
+  fetchMovieSearch,
+};

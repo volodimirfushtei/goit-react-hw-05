@@ -1,9 +1,11 @@
 import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import MovieCast from "../../components/MovieCast/MovieCast";
-import MovieReviews from "../../components/MovieReviews/MovieReviews";
-import { fetchMovieById, fetchMovieReviews } from "../../servises/Api";
+
+import fetchApi from "../../servises/Api";
 import s from "./MovieDetailsPage.module.css";
+import Loader from "../../../src/components/Loader/Loader";
+import { Link } from "react-router-dom";
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -17,11 +19,12 @@ const MovieDetailsPage = () => {
 
     const fetchMovieDetails = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const data = await fetchMovieById(movieId);
+        const data = await fetchApi.fetchMovieById(movieId);
         setMovie(data);
 
-        const reviewsData = await fetchMovieReviews(movieId); // Отримуємо відгуки
+        const reviewsData = await fetchApi.fetchMovieReviews(movieId); // Отримуємо відгуки
         setReviews(reviewsData.results); // Зберігаємо відгуки у стані
       } catch (error) {
         setError(error.message);
@@ -34,7 +37,11 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   if (loading) {
-    return <p>Завантаження...</p>;
+    return (
+      <div className={s.loader}>
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
@@ -42,14 +49,21 @@ const MovieDetailsPage = () => {
   }
 
   return (
-    <div>
-      <h2 className={s.movieTitle}>{movie.title}</h2>
-      {movie.credits?.cast && <MovieCast cast={movie.credits.cast} />}
-      {reviews.length > 0 ? (
-        <MovieReviews reviews={reviews} />
-      ) : (
-        <p className={s.reviews}>No review found</p>
-      )}
+    <div className={s.card_container}>
+      <img
+        className={s.image}
+        src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+        alt={movie.title}
+      />
+      <h2>{movie.title}</h2>
+      <p>{movie.overview}</p>
+      <p>Рейтинг: {movie.vote_average}</p>
+      <p>
+        Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
+      </p>
+
+      <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
       <Outlet />
     </div>
   );

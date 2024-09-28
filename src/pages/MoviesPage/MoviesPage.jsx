@@ -3,7 +3,7 @@ import s from "./MoviesPage.module.css";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import SearchForm from "../../components/SearchForm/SearchForm.jsx";
-import fetchMovieSearch from "../../servises/Api.js";
+import fetchApi from "../../servises/Api.js";
 import { Link } from "react-router-dom"; // Додано для навігації
 
 const MoviesPage = () => {
@@ -23,7 +23,7 @@ const MoviesPage = () => {
         setError(null);
         try {
           console.log("Fetching movies for query:", query);
-          const results = await fetchMovieSearch(query);
+          const results = await fetchApi.fetchMovieSearch(query);
           console.log("Results from API:", results);
           setMovies(results);
         } catch (error) {

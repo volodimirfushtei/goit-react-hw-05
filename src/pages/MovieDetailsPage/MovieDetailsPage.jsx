@@ -13,6 +13,8 @@ const MovieDetailsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const defaultImg =
+    "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
   useEffect(() => {
     if (!movieId) return;
@@ -52,7 +54,11 @@ const MovieDetailsPage = () => {
     <div className={s.card_container}>
       <img
         className={s.image}
-        src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+        src={
+          movie.poster_path
+            ? `${IMAGE_BASE_URL}${movie.poster_path}`
+            : defaultImg
+        }
         alt={movie.title}
       />
       <h2>{movie.title}</h2>

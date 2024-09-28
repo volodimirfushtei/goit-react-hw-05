@@ -66,6 +66,7 @@ const fetchMovieSearch = async (query) => {
 
   try {
     const response = await axios.get(url, options);
+    console.log("API Response:", response.data);
     return response.data.results; // Повертаємо лише результати
   } catch (error) {
     console.error("Error fetching movie search results:", error);

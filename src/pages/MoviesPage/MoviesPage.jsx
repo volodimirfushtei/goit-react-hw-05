@@ -24,6 +24,7 @@ const MoviesPage = () => {
         try {
           console.log("Fetching movies for query:", query);
           const results = await fetchMovieSearch(query);
+          console.log("Results from API:", results);
           setMovies(results); // Зберігаємо отримані фільми
         } catch (error) {
           console.log(error, "Fetching movies");

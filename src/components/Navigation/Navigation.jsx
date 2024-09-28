@@ -7,7 +7,7 @@ const Navigation = () => {
         <li className={s.NavLink}>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
+            className={({ isActive }) => (isActive ? s.active : "")}
           >
             Home
           </NavLink>
@@ -15,7 +15,7 @@ const Navigation = () => {
         <li className={s.NavLink}>
           <NavLink
             to="/movies"
-            className={({ isActive }) => (isActive ? "active" : "")}
+            className={({ isActive }) => (isActive ? s.active : "")}
           >
             Movies
           </NavLink>

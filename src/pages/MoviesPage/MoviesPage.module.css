@@ -8,3 +8,8 @@
   background-color: #e79494;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.SearchForm_mesage {
+  margin: 0 auto;
+  font-size: 14px;
+  color: #fff;
+}

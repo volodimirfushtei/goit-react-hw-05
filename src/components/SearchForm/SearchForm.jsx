@@ -1,25 +1,50 @@
+// SearchForm.jsx
+// SearchForm.jsx
 import { IoIosSearch } from "react-icons/io";
-import s from "./Searchform.module.css";
-const SearchForm = ({ query, setQuery }) => {
+import s from "./SearchForm.module.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+const SearchForm = ({ onSubmit }) => {
   const placeholder = "Search movies";
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const initialValues = {
+    query: "",
   };
+
+  const validationSchema = Yup.object({
+    query: Yup.string().required("fill in").min(2, "Min 2 characters"),
+  });
+
+  const handleSubmit = (values, { resetForm }) => {
+    onSubmit(values.query); // Викликаємо функцію onSubmit
+    resetForm(); // Скидаємо форму
+  };
+
   return (
     <div>
-      <form className={s.form} onSubmit={handleSubmit}>
-        <IoIosSearch className={s.searchBar_icon} />
-        <input
-          className={s.searchBar_input}
-          type="text"
-          autoComplete="off"
-          autoFocus
-          value={query}
-          placeholder={placeholder}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Search movies"
-        />
-      </form>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {() => (
+          <Form className={s.form}>
+            <IoIosSearch className={s.searchBar_icon} />
+            <Field
+              className={s.searchBar_input}
+              type="text"
+              autoComplete="off"
+              autoFocus
+              name="query"
+              placeholder={placeholder}
+            />
+            <ErrorMessage name="query" component="div" className={s.error} />
+            <button type="submit" className={s.searchBar_submit}>
+              Search
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };

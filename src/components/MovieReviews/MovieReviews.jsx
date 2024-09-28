@@ -1,15 +1,17 @@
+import s from "./MovieReviews.module.css";
+
 const MovieReviews = ({ reviews }) => {
   if (!reviews) {
     return <p>No reviews</p>;
   }
   return (
-    <div>
-      <h3>Reviews</h3>
-      <ul>
+    <div className={s.reviews_container}>
+      <h3 className={s.reviews}>Reviews</h3>
+      <ul className={s.reviews_list}>
         {reviews.map((review) => (
-          <li key={review.id}>
-            <h4>{review.author}</h4>
-            <p>{review.content}</p>
+          <li className={s.reviews_item} key={review.id}>
+            <h4 className={s.author}>{review.author}</h4>
+            <p className={s.content}>{review.content}</p>
           </li>
         ))}
       </ul>

@@ -1,48 +1,61 @@
+// MoviesPage.jsx
 import s from "./MoviesPage.module.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import SearchForm from "../../components/SearchForm/SearchForm";
+import SearchForm from "../../components/SearchForm/SearchForm.jsx";
+import fetchMovieSearch from "../../servises/Api.js";
+import { Link } from "react-router-dom"; // Додано для навігації
 
-const MoviesPage = ({ onSubmit }) => {
-  const { movieId } = useParams();
+const MoviesPage = () => {
   const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!movieId) return;
-    const fetchMovieDetails = async () => {
-      try {
-        // Ваш запит API
-        console.log("Fetching movie details for ID:", movieId);
-      } catch (error) {
-        console.log(error, "Fetching movie details");
-        toast.error("Не вдалося отримати дані про фільм.");
-      }
-    };
-
-    fetchMovieDetails();
-  }, [movieId]);
+  const handleChangeQuery = (newQuery) => {
+    setQuery(newQuery);
+  };
 
   useEffect(() => {
     if (query.trim()) {
-      const fetchMovies = async () => {
+      const fetchMoviesByQuery = async () => {
+        setLoading(true);
+        setError(null); // Скидаємо помилку перед запитом
         try {
-          toast.success("Запит для пошуку успішно введено");
-          console.log("Search params:", { query });
-          onSubmit(query); // Викликаємо onSubmit з запитом
+          console.log("Fetching movies for query:", query);
+          const results = await fetchMovieSearch(query);
+          setMovies(results); // Зберігаємо отримані фільми
         } catch (error) {
           console.log(error, "Fetching movies");
+          setError("Не вдалося виконати пошук."); // Встановлюємо помилку
           toast.error("Не вдалося виконати пошук.");
+        } finally {
+          setLoading(false);
         }
       };
 
-      fetchMovies();
+      fetchMoviesByQuery();
+    } else {
+      setMovies([]); // Скидаємо список, якщо запит порожній
     }
-  }, [query, onSubmit]);
+  }, [query]);
 
   return (
     <div className={s.MoviesPage_w}>
-      <SearchForm query={query} setQuery={setQuery} />
+      <SearchForm onSubmit={handleChangeQuery} />
+      {loading && <p>Завантаження...</p>}
+      {error && <p className={s.error}>{error}</p>} {/* Відображення помилки */}
+      <ul>
+        {movies.length > 0
+          ? movies.map((movie) => (
+              <li key={movie.id}>
+                <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              </li>
+            ))
+          : !loading && (
+              <p className={s.SearchForm_mesage}>Фільми не знайдені.</p>
+            )}
+      </ul>
     </div>
   );
 };

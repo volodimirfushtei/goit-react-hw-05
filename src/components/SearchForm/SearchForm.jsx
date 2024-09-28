@@ -16,8 +16,8 @@ const SearchForm = ({ onSubmit }) => {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    onSubmit(values.query); // Викликаємо функцію onSubmit
-    resetForm(); // Скидаємо форму
+    onSubmit(values.query);
+    resetForm();
   };
 
   return (

@@ -20,15 +20,15 @@ const MoviesPage = () => {
     if (query.trim()) {
       const fetchMoviesByQuery = async () => {
         setLoading(true);
-        setError(null); // Скидаємо помилку перед запитом
+        setError(null); 
         try {
           console.log("Fetching movies for query:", query);
           const results = await fetchMovieSearch(query);
           console.log("Results from API:", results);
-          setMovies(results); // Зберігаємо отримані фільми
+          setMovies(results); 
         } catch (error) {
           console.log(error, "Fetching movies");
-          setError("Не вдалося виконати пошук."); // Встановлюємо помилку
+          setError("Не вдалося виконати пошук.");
           toast.error("Не вдалося виконати пошук.");
         } finally {
           setLoading(false);

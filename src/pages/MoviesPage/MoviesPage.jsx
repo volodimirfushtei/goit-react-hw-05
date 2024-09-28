@@ -20,12 +20,12 @@ const MoviesPage = () => {
     if (query.trim()) {
       const fetchMoviesByQuery = async () => {
         setLoading(true);
-        setError(null); 
+        setError(null);
         try {
           console.log("Fetching movies for query:", query);
           const results = await fetchMovieSearch(query);
           console.log("Results from API:", results);
-          setMovies(results); 
+          setMovies(results);
         } catch (error) {
           console.log(error, "Fetching movies");
           setError("Не вдалося виконати пошук.");
@@ -37,7 +37,7 @@ const MoviesPage = () => {
 
       fetchMoviesByQuery();
     } else {
-      setMovies([]); // Скидаємо список, якщо запит порожній
+      setMovies([]);
     }
   }, [query]);
 
@@ -45,7 +45,7 @@ const MoviesPage = () => {
     <div className={s.MoviesPage_w}>
       <SearchForm onSubmit={handleChangeQuery} />
       {loading && <p>Завантаження...</p>}
-      {error && <p className={s.error}>{error}</p>} {/* Відображення помилки */}
+      {error && <p className={s.error}>{error}</p>}
       <ul>
         {movies.length > 0
           ? movies.map((movie) => (

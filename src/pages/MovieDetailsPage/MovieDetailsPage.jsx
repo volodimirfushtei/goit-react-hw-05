@@ -6,13 +6,15 @@ import s from "./MovieDetailsPage.module.css";
 import Loader from "../../../src/components/Loader/Loader";
 import { Link } from "react-router-dom";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
-
+import MovieCast from "../../components/MovieCast/MovieCast";
+import MovieReviews from "../../components/MovieReviews/MovieReviews";
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cast, setCast] = useState([]);
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
@@ -25,9 +27,9 @@ const MovieDetailsPage = () => {
       try {
         const data = await fetchApi.fetchMovieById(movieId);
         setMovie(data);
-
+        setCast(data.credits.cast);
         const reviewsData = await fetchApi.fetchMovieReviews(movieId); // Отримуємо відгуки
-        setReviews(reviewsData.results); // Зберігаємо відгуки у стані
+        setReviews(reviewsData.reviews); // Зберігаємо відгуки у стані
       } catch (error) {
         setError(error.message);
       } finally {
@@ -67,10 +69,12 @@ const MovieDetailsPage = () => {
       <p>
         Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
       </p>
-
       <Link to={`/movies/${movieId}/cast`}>Cast</Link>
       <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
       <Outlet />
+      <MovieCast cast={cast} />
+      <MovieReviews reviews={reviews} />
+      <Link to="/">Back to Home</Link>
     </div>
   );
 };

@@ -1,20 +1,20 @@
 import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import fetchApi from "../../servises/Api";
 import s from "./MovieDetailsPage.module.css";
 import Loader from "../../../src/components/Loader/Loader";
 import { Link } from "react-router-dom";
+// Імпорт компонента
+
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
-import MovieCast from "../../components/MovieCast/MovieCast";
-import MovieReviews from "../../components/MovieReviews/MovieReviews";
+
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cast, setCast] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
@@ -29,9 +29,10 @@ const MovieDetailsPage = () => {
         setMovie(data);
         setCast(data.credits.cast);
         const reviewsData = await fetchApi.fetchMovieReviews(movieId); // Отримуємо відгуки
-        setReviews(reviewsData.reviews); // Зберігаємо відгуки у стані
+        setReviews(reviewsData.results || []); // Зберігаємо відгуки у стані
       } catch (error) {
-        setError(error.message);
+        console.error(error);
+        setError("Не вдалося завантажити інформацію про фільм.");
       } finally {
         setLoading(false);
       }
@@ -63,17 +64,18 @@ const MovieDetailsPage = () => {
         }
         alt={movie.title}
       />
-      <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
-      <p>Рейтинг: {movie.vote_average}</p>
-      <p>
-        Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
-      </p>
+      <div className={s.card_text_container}>
+        <h2>{movie.title}</h2>
+        <p>{movie.overview}</p>
+        <p>Рейтинг: {movie.vote_average}</p>
+        <p>
+          Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
+        </p>
+        <p>Жанри: {movie.genres.map((genre) => genre.name).join(", ")}</p>
+      </div>
       <Link to={`/movies/${movieId}/cast`}>Cast</Link>
       <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
-      <Outlet />
-      <MovieCast cast={cast} />
-      <MovieReviews reviews={reviews} />
+      <Outlet context={{ cast, reviews }} /> {/* Передайте дані в Outlet */}
       <Link to="/">Back to Home</Link>
     </div>
   );

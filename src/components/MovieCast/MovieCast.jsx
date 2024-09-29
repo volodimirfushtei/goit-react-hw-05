@@ -1,6 +1,14 @@
 import s from "./MovieCast.module.css";
-
-const MovieCast = ({ cast }) => {
+import { useOutletContext } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+const MovieCast = () => {
+  const { cast } = useOutletContext();
+  const { movieId } = useParams(); // Отримуємо movieId
+  useEffect(() => {
+    if (!movieId) return;
+    // Тут ви можете виконати запит на отримання додаткових даних, якщо потрібно
+  }, [movieId]);
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 

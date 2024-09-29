@@ -46,10 +46,10 @@ const MoviesPage = () => {
       <SearchForm onSubmit={handleChangeQuery} />
       {loading && <p>Завантаження...</p>}
       {error && <p className={s.error}>{error}</p>}
-      <ul>
+      <ul className={s.movies_list}>
         {movies.length > 0
           ? movies.map((movie) => (
-              <li key={movie.id}>
+              <li className={s.movies_list_item} key={movie.id}>
                 <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
               </li>
             ))

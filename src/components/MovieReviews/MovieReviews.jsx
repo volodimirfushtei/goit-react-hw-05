@@ -1,6 +1,7 @@
 import s from "./MovieReviews.module.css";
 import { useOutletContext, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MovieReviews = () => {
   const { reviews } = useOutletContext(); // Отримуємо reviews з контексту

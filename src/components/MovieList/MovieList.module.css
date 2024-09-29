@@ -1,19 +1,20 @@
 .MovieList_container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding: 20px;
 }
 .MovieList {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  align-items: center;
+  align-items: self-start;
   width: 100%;
-  margin-top: 20px;
+
   padding: 20px;
   list-style-type: none;
   background-color: #f5f5f5;
@@ -31,4 +32,38 @@
   height: 100px;
   margin-bottom: 20px;
   margin: 0 auto;
+}
+.list_title {
+  font-size: 24px;
+  text-align: center;
+  margin: 5px auto;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+.MovieList_item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 300px;
+  padding: 2px;
+  font-size: small;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.02);
+  }
+}
+.movietitle {
+  font-weight: bold;
+  transition: color 0.3s ease;
+  padding-left: 5px;
+  &:hover {
+    color: #888;
+  }
 }

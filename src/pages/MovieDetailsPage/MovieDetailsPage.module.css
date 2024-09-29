@@ -27,35 +27,98 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  flex-direction: column;
-  gap: 10px;
-  width: 350px;
-
+  flex-direction: row;
+  gap: 4px;
+  width: 95%;
+  height: auto;
+  @media screen and (max-width: 375px) {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
   align-items: center;
   border: 2px solid #aeabab;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transition: border 0.3s ease;
-  background-color: #aeabab;
+  background-color: #c5c0c0;
   margin: 0 auto;
   &:hover {
     border: 2px solid #5e5e5e;
-    transform: scale(1.02);
   }
 }
 .image {
   width: 340px;
-  height: auto;
+  height: 520px;
   object-fit: fill;
   border-radius: 5px;
-  transition: transform 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: scale(1.05);
+  }
+  img {
+    width: 100%;
 
-  margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  transition: transform 0.3s ease;
 }
 .card_text_container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 85%;
+  padding: 10px;
+  color: #0f0f0f;
+  transition: color 0.3s ease;
+  height: 500px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  margin: 5px auto;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+.title {
+  font-size: var(--font-large);
+  margin-bottom: 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #48494b;
+  }
+}
+.overview {
+  font-size: var(--font-medium);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #646567;
+  }
+}
+.Links {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin: auto 5px;
+  gap: 10px;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  font-weight: bold;
+  &:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+  }
 }

@@ -8,7 +8,7 @@
   list-style-type: none;
   max-width: 1470px;
   overflow-x: hidden;
-  max-height: 530px;
+  max-height: 400px;
   overflow-y: auto;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -46,13 +46,11 @@
   display: flex;
   align-items: center;
   display: flex;
-
   border: 1px solid rgba(0, 0, 0, 0.1);
   gap: 5px;
   height: auto;
   background-color: #e5e5e9;
   width: 140px;
-
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 8px;

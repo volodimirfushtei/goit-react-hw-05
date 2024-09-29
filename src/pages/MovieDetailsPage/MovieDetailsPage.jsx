@@ -65,18 +65,23 @@ const MovieDetailsPage = () => {
         alt={movie.title}
       />
       <div className={s.card_text_container}>
-        <h2>{movie.title}</h2>
-        <p>{movie.overview}</p>
-        <p>Рейтинг: {movie.vote_average}</p>
-        <p>
+        <h2 className={s.title}>{movie.title}</h2>
+        <p className={s.overview}>{movie.overview}</p>
+        <p className={s.average}>Рейтинг: {movie.vote_average}</p>
+        <p className={s.date}>
           Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
         </p>
-        <p>Жанри: {movie.genres.map((genre) => genre.name).join(", ")}</p>
+        <p className={s.genre}>
+          Жанри: {movie.genres.map((genre) => genre.name).join(", ")}
+        </p>
       </div>
-      <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
-      <Outlet context={{ cast, reviews }} /> {/* Передайте дані в Outlet */}
-      <Link to="/">Back to Home</Link>
+      <div className={s.Links}>
+        <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+        <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+        <Outlet context={{ cast, reviews }} /> {/* Передайте дані в Outlet */}
+        <Link to="/">Home</Link>
+        <Link to="/">Go back</Link>
+      </div>
     </div>
   );
 };

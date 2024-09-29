@@ -26,11 +26,7 @@ const MovieList = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className={s.loader}>
-        <Loader />
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {

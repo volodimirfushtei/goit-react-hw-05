@@ -97,8 +97,6 @@
 }
 .goBack {
   font-size: large;
-  margin-top: 20px;
-  margin-bottom: 20px;
   text-decoration: underline;
   color: #333;
   transition: color 0.3s ease;
@@ -111,4 +109,14 @@
   margin-bottom: 10px;
   transition: color 0.3s ease;
   color: brown;
+}
+.container_cast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  max-width: 1470px;
+  margin: 0 auto;
 }

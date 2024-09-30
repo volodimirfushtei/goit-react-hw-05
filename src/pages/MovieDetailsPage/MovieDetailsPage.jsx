@@ -83,20 +83,24 @@ const MovieDetailsPage = () => {
         </div>
       </div>
       <div className={s.Links}>
-        <Link
-          className={s.Link}
-          to={`/movies/${movieId}/cast`}
-          state={{ from: location.pathname }}
-        >
-          Cast
-        </Link>
-        <Link
-          className={s.Link}
-          to={`/movies/${movieId}/reviews`}
-          state={{ from: location.pathname }}
-        >
-          Reviews
-        </Link>
+        {location.pathname !== `/movies/${movieId}/cast` && (
+          <Link
+            className={s.Link}
+            to={`/movies/${movieId}/cast`}
+            state={{ from: location.pathname }}
+          >
+            Cast
+          </Link>
+        )}
+        {location.pathname !== `/movies/${movieId}/reviews` && (
+          <Link
+            className={s.Link}
+            to={`/movies/${movieId}/reviews`}
+            state={{ from: location.pathname }}
+          >
+            Reviews
+          </Link>
+        )}
         <Outlet context={{ cast: movie.credits.cast, reviews }} />
         <Link className={s.Link} to="/" state={{ from: location.pathname }}>
           Home

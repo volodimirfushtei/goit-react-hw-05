@@ -50,6 +50,7 @@ const MoviesPage = () => {
         {movies.length > 0
           ? movies.map((movie) => (
               <li className={s.movies_list_item} key={movie.id}>
+                <div className={s.create_line}></div>
                 <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
               </li>
             ))

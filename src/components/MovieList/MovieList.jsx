@@ -36,9 +36,9 @@ const MovieList = () => {
     return <p>Не вдалося завантажити фільми.</p>;
   }
   return (
-    <div className={s.MovieList_container}>
+    <>
       <h2 className={s.list_title}>Trending today</h2>
-      <ul className={s.MovieList}>
+      <ul className={s.Movie_list}>
         {movies.map((movie) => (
           <li className={s.MovieList_item} key={movie.id}>
             <div className={s.create_line}></div>
@@ -48,7 +48,7 @@ const MovieList = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

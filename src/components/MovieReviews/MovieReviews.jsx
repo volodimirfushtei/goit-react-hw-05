@@ -25,6 +25,9 @@ const MovieReviews = () => {
 
   return (
     <div className={s.reviews_container}>
+      <Link to={backLink.current} className={s.goBack}>
+        Go back
+      </Link>
       <h3 className={s.reviews}>Reviews</h3>
       <ul className={s.reviews_list}>
         {reviews.map((review) => (
@@ -34,9 +37,6 @@ const MovieReviews = () => {
           </li>
         ))}
       </ul>
-      <Link to={backLink.current} className={s.goBack}>
-        Go back
-      </Link>
     </div>
   );
 };

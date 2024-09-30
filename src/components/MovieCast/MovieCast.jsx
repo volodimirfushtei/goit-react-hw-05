@@ -24,7 +24,10 @@ const MovieCast = () => {
   }
 
   return (
-    <div>
+    <div className={s.container_cast}>
+      <Link to={backLink.current} className={s.goBack}>
+        Go back
+      </Link>
       <h3 className={s.actors}>Actors</h3>
       <ul className={s.actors_list}>
         {cast.map((actor) => (
@@ -43,9 +46,6 @@ const MovieCast = () => {
           </li>
         ))}
       </ul>
-      <Link to={backLink.current} className={s.goBack}>
-        Go back
-      </Link>
     </div>
   );
 };

@@ -1,15 +1,21 @@
+import {
+  useOutletContext,
+  useParams,
+  useLocation,
+  Link,
+} from "react-router-dom";
+import { useEffect, useRef } from "react";
 import s from "./MovieCast.module.css";
-import { useOutletContext } from "react-router-dom";
-import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
-
 const MovieCast = () => {
   const { cast } = useOutletContext();
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLink = useRef(location.state?.from || "/movies");
 
   useEffect(() => {
     if (!movieId) return;
   }, [movieId]);
+
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
@@ -37,7 +43,7 @@ const MovieCast = () => {
           </li>
         ))}
       </ul>
-      <Link to={`/movies/${movieId}`} className={s.goBack}>
+      <Link to={backLink.current} className={s.goBack}>
         Go back
       </Link>
     </div>

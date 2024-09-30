@@ -1,7 +1,7 @@
 // SearchForm.jsx
 
 import { IoIosSearch } from "react-icons/io";
-
+import s from "./SearchForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -22,27 +22,32 @@ const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {() => (
-          <Form>
-            <IoIosSearch />
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {() => (
+        <Form className={s.Form}>
+          <div className={s.Form_container}>
+            <IoIosSearch className={s.icon} />
             <Field
               type="text"
               autoComplete="off"
               autoFocus
               name="query"
               placeholder={placeholder}
+              className={s.SearchInput}
             />
-            <ErrorMessage name="query" component="div" />
-          </Form>
-        )}
-      </Formik>
-    </div>
+          </div>
+          <ErrorMessage
+            name="query"
+            component="div"
+            className={s.ErrorMessage}
+          />
+        </Form>
+      )}
+    </Formik>
   );
 };
 

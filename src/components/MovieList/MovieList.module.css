@@ -35,7 +35,9 @@
   top: 50%;
   left: 30%;
   transform: translateX(-50%);
+  text-decoration: underline;
 }
+
 .MovieList_item {
   display: flex;
   flex-direction: column;

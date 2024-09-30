@@ -40,7 +40,6 @@ const SearchForm = ({ onSubmit }) => {
               name="query"
               placeholder={placeholder}
             />
-
             <ErrorMessage name="query" component="div" className={s.error} />
           </Form>
         )}

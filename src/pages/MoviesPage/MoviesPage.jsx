@@ -53,9 +53,7 @@ const MoviesPage = () => {
                 <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
               </li>
             ))
-          : !loading && (
-              <p className={s.SearchForm_mesage}>Фільми не знайдені.</p>
-            )}
+          : !loading && <p className={s.SearchForm_mesage}>No movies found</p>}
       </ul>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { IoIosSearch } from "react-icons/io";
 import s from "./SearchForm.module.css";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const SearchForm = ({ onSubmit }) => {
@@ -39,6 +39,7 @@ const SearchForm = ({ onSubmit }) => {
               name="query"
               placeholder={placeholder}
             />
+            <ErrorMessage name="query" component="div" className={s.error} />
           </Form>
         )}
       </Formik>

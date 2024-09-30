@@ -4,15 +4,15 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const MovieReviews = () => {
-  const { reviews } = useOutletContext(); // Отримуємо reviews з контексту
-  const { movieId } = useParams(); // Отримуємо movieId
+  const { reviews } = useOutletContext();
+  const { movieId } = useParams();
 
   useEffect(() => {
     if (!movieId) return;
   }, [movieId]);
 
   if (!reviews || reviews.length === 0) {
-    return <p className={s.avalible_reviews}>No reviews available</p>; // Якщо немає відгуків
+    return <p className={s.avalible_reviews}>No reviews available</p>;
   }
 
   return (

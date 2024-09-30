@@ -31,16 +31,15 @@ const SearchForm = ({ onSubmit }) => {
         <Form className={s.Form}>
           <div className={s.Form_container}>
             <IoIosSearch className={s.icon} />
-            <label htmlFor="query" className={s.label}>
-              <Field
-                type="text"
-                autoComplete="off"
-                autoFocus
-                name="query"
-                placeholder={placeholder}
-                className={s.SearchInput}
-              />
-            </label>
+
+            <Field
+              type="text"
+              autoComplete="off"
+              autoFocus
+              name="query"
+              placeholder={placeholder}
+              className={s.SearchInput}
+            />
           </div>
           <ErrorMessage
             name="query"

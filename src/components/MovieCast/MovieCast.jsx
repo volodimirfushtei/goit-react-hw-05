@@ -9,7 +9,6 @@ const MovieCast = () => {
 
   useEffect(() => {
     if (!movieId) return;
-    // Тут ви можете виконати запит на отримання додаткових даних, якщо потрібно
   }, [movieId]);
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";

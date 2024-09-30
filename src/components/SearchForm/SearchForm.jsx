@@ -12,7 +12,9 @@ const SearchForm = ({ onSubmit }) => {
   };
 
   const validationSchema = Yup.object({
-    query: Yup.string().required("fill in").min(2, "Min 2 characters"),
+    query: Yup.string()
+      .required("Name is required ")
+      .min(2, "Min 2 characters"),
   });
 
   const handleSubmit = (values, { resetForm }) => {
@@ -38,10 +40,8 @@ const SearchForm = ({ onSubmit }) => {
               name="query"
               placeholder={placeholder}
             />
+
             <ErrorMessage name="query" component="div" className={s.error} />
-            <button type="submit" className={s.searchBar_submit}>
-              Search
-            </button>
           </Form>
         )}
       </Formik>

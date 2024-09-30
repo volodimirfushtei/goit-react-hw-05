@@ -10,7 +10,6 @@ const SearchForm = ({ onSubmit }) => {
   const initialValues = {
     query: "",
   };
-
   const validationSchema = Yup.object({
     query: Yup.string()
       .required("Name is required ")

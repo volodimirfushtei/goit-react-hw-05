@@ -26,10 +26,6 @@
     color: #272525;
     cursor: pointer;
   }
-  &:focus {
-    border: 2px solid #94b9f5;
-  }
-  transition: border 0.3s ease;
 }
 .searchBar_submit {
   padding: 10px 20px;

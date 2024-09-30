@@ -17,15 +17,11 @@
 
   padding: 20px;
   list-style-type: none;
-  background-color: #f5f5f5;
+  background-color: #d3d4d8;
   color: #333;
-  border-radius: 5px;
+
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
-  border-radius: 5px;
-  &:hover {
-    background-color: #ddd;
-  }
 }
 .loader {
   width: 100px;
@@ -49,9 +45,9 @@
   width: 300px;
   padding: 2px;
   font-size: small;
-  background-color: #fff;
+
   color: #333;
-  border-radius: 5px;
+
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
   &:hover {
@@ -66,4 +62,25 @@
   &:hover {
     color: #888;
   }
+}
+.list_link {
+  background-color: linear-gradient(to bottom, #706767, #fff);
+
+  color: #1a1919;
+}
+.create_line {
+  padding-left: 5px;
+  /* необходим для формирования позиций линии */
+  position: relative;
+  /* весь блок будет занимать ширину по размеру контента в нём */
+  display: inline-block;
+}
+
+.create_line:before {
+  content: " ";
+  background: #33ccff;
+  width: 295px;
+  height: 2px;
+  top: 25px;
+  position: absolute;
 }

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import SearchForm from "../../components/SearchForm/SearchForm.jsx";
 import fetchApi from "../../servises/Api.js";
 import { Link } from "react-router-dom"; // Додано для навігації
-
+import Loader from "../../../src/components/Loader/Loader";
 const MoviesPage = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
@@ -44,7 +44,7 @@ const MoviesPage = () => {
   return (
     <div className={s.MoviesPage_w}>
       <SearchForm onSubmit={handleChangeQuery} />
-      {loading && <p>Завантаження...</p>}
+      {loading && <Loader />}
       {error && <p className={s.error}>{error}</p>}
       <ul className={s.movies_list}>
         {movies.length > 0

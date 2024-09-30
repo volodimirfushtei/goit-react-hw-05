@@ -94,12 +94,15 @@
   &:hover {
     color: #f6f7f8;
   }
-  @media screen and (max-width: 375px) {
-    font-size: 0.8rem;
+}
+.goBack {
+  font-size: large;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  color: #333;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #7f7ad7;
   }
-  white-space: nowrap;
-
-  text-overflow: ellipsis;
-  margin-bottom: 5px;
-  max-width: 100%;
 }

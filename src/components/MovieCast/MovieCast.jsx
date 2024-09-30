@@ -1,11 +1,12 @@
 import s from "./MovieCast.module.css";
 import { useOutletContext } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 const MovieCast = () => {
   const { cast } = useOutletContext();
-  const { movieId } = useParams(); // Отримуємо movieId
+  const { movieId } = useParams();
+
   useEffect(() => {
     if (!movieId) return;
     // Тут ви можете виконати запит на отримання додаткових даних, якщо потрібно
@@ -20,7 +21,6 @@ const MovieCast = () => {
   return (
     <div>
       <h3 className={s.actors}>Actors</h3>
-
       <ul className={s.actors_list}>
         {cast.map((actor) => (
           <li className={s.actors_list_item} key={actor.id}>
@@ -38,6 +38,9 @@ const MovieCast = () => {
           </li>
         ))}
       </ul>
+      <Link to={`/movies/${movieId}`} className={s.goBack}>
+        Go back
+      </Link>
     </div>
   );
 };

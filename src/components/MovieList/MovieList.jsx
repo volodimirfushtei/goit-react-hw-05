@@ -41,7 +41,8 @@ const MovieList = () => {
       <ul className={s.MovieList}>
         {movies.map((movie) => (
           <li className={s.MovieList_item} key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
+            <div className={s.create_line}></div>
+            <Link to={`/movies/${movie.id}`} className={s.list_link}>
               <h3 className={s.movietitle}>{movie.title}</h3>
             </Link>
           </li>

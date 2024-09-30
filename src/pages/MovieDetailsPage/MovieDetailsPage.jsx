@@ -55,32 +55,47 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={s.card_container}>
-      <img
-        className={s.image}
-        src={
-          movie.poster_path
-            ? `${IMAGE_BASE_URL}${movie.poster_path}`
-            : defaultImg
-        }
-        alt={movie.title}
-      />
-      <div className={s.card_text_container}>
-        <h2 className={s.title}>{movie.title}</h2>
-        <p className={s.overview}>{movie.overview}</p>
-        <p className={s.average}>Рейтинг: {movie.vote_average}</p>
-        <p className={s.date}>
-          Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
-        </p>
-        <p className={s.genre}>
-          Жанри: {movie.genres.map((genre) => genre.name).join(", ")}
-        </p>
+      <div className={s.card_container_item}>
+        <img
+          className={s.image}
+          src={
+            movie.poster_path
+              ? `${IMAGE_BASE_URL}${movie.poster_path}`
+              : defaultImg
+          }
+          alt={movie.title}
+        />
+        <div className={s.card_text_container}>
+          <h2 className={s.title}>{movie.title}</h2>
+          <p className={s.overview}>{movie.overview}</p>
+          <p className={s.average}>Рейтинг: {movie.vote_average}</p>
+          <p className={s.date}>
+            Рік: {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
+          </p>
+          <p className={s.genre}>
+            Жанри: {movie.genres.map((genre) => genre.name).join(", ")}
+          </p>
+          <p className={s.time}>Тривалість: {movie.runtime} хвилин</p>
+          <p className={s.production_companies}>
+            Виробництво:{" "}
+            {movie.production_companies
+              .map((company) => company.name)
+              .join(", ")}
+          </p>
+          <p className={s.budget}>Бюджет: {movie.budget}</p>
+        </div>
       </div>
       <div className={s.Links}>
-        <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-        <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
-        <Outlet context={{ cast, reviews }} /> {/* Передайте дані в Outlet */}
-        <Link to="/">Home</Link>
-        <Link to="/">Go back</Link>
+        <Link className={s.Link} to={`/movies/${movieId}/cast`}>
+          Cast
+        </Link>
+        <Link className={s.Link} to={`/movies/${movieId}/reviews`}>
+          Reviews
+        </Link>
+        <Outlet context={{ cast, reviews }} />
+        <Link className={s.Link} to="/">
+          Home
+        </Link>
       </div>
     </div>
   );

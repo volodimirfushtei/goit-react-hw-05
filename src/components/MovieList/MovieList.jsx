@@ -49,7 +49,11 @@ const MovieList = () => {
         ))}
         <div className={s.create_linedown}></div>
       </ul>
-      <img className={s.create_} src="/src/assets/sl_121019_25870_62-min.jpg" />
+      <img
+        className={s.create_}
+        src="/src/assets/sl_min.jpg"
+        alt="Description"
+      />
     </>
   );
 };

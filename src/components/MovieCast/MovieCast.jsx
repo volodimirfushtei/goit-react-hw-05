@@ -15,7 +15,7 @@ const MovieCast = () => {
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
   if (!cast || cast.length === 0) {
-    return <p>NO Cast</p>;
+    return <p className={s.avalible_cast}>NO cast available</p>;
   }
 
   return (

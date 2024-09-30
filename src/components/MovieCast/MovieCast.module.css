@@ -106,3 +106,9 @@
     color: #7f7ad7;
   }
 }
+.avalible_cast {
+  font-size: var(--font-small);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  color: brown;
+}

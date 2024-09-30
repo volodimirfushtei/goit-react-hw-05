@@ -12,7 +12,7 @@ const MovieReviews = () => {
   }, [movieId]);
 
   if (!reviews || reviews.length === 0) {
-    return <p>No reviews available</p>; // Якщо немає відгуків
+    return <p className={s.avalible_reviews}>No reviews available</p>; // Якщо немає відгуків
   }
 
   return (

@@ -85,4 +85,5 @@ code {
 }
 div {
   box-shadow: none;
+  transition: color 0.3s ease;
 }

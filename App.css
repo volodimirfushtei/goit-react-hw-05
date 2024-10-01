@@ -9,3 +9,8 @@
   border-radius: 5px;
   width: 100%;
 }
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}

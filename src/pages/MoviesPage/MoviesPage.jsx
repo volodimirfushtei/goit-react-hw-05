@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import SearchForm from "../../components/SearchForm/SearchForm.jsx";
 import fetchApi from "../../servises/Api.js";
-import { Link, useSearchParams } from "react-router-dom"; // Додано для навігації
+import { useSearchParams } from "react-router-dom"; // Додано для навігації
 import Loader from "../../../src/components/Loader/Loader";
+import MovieListSearch from "../../components/MovieListSearch/MovieListSearch";
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("query") || "");
@@ -48,16 +49,11 @@ const MoviesPage = () => {
       <SearchForm onSubmit={handleChangeQuery} />
       {loading && <Loader />}
       {error && <p className={s.error}>{error}</p>}
-      <ul className={s.movies_list}>
-        {movies.length > 0
-          ? movies.map((movie) => (
-              <li className={s.movies_list_item} key={movie.id}>
-                <div className={s.create_line}></div>
-                <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-              </li>
-            ))
-          : !loading && <p className={s.SearchForm_mesage}>No movies found</p>}
-      </ul>
+      {movies.length > 0 ? (
+        <MovieListSearch movies={movies} /> // Використовуємо компонент MovieListSearch
+      ) : (
+        !loading && <p className={s.SearchForm_mesage}>No movies found</p>
+      )}
     </div>
   );
 };

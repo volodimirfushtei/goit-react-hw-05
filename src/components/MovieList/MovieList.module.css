@@ -31,10 +31,10 @@
   align-items: flex-start;
   width: 450px;
   padding: 2px;
-  font-size: small;
+  font-size: medium;
   font-weight: bold;
   padding-left: 5px;
-  color: #b21c1c;
+  color: #c1bbbb;
   border-radius: 5px;
 
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);

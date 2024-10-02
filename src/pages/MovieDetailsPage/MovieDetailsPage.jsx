@@ -42,7 +42,7 @@ const MovieDetailsPage = () => {
         setReviews(reviewsData.results || []);
       } catch (error) {
         console.error(error);
-        setError("Не вдалося завантажити інформацію про фільм.");
+        setError("Немає інформаціЇ");
       } finally {
         setLoading(false);
       }

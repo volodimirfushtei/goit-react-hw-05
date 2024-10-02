@@ -32,9 +32,8 @@ const HomePage = () => {
     return <p>Помилка: {error}</p>;
   }
   if (!movies || movies.length === 0) {
-    return <p>Не вдалося завантажити фільми.</p>;
+    return <p>No film</p>;
   }
-
   return (
     <div className={s.MovieList}>
       <h1 className={s.list_title}>Trending today</h1>

@@ -45,16 +45,18 @@ const MoviesPage = () => {
   }, [query]);
 
   return (
-    <div className={s.MoviesPage_w}>
-      <SearchForm onSubmit={handleChangeQuery} />
-      {loading && <Loader />}
-      {error && <p className={s.error}>{error}</p>}
-      {movies.length > 0 ? (
-        <MovieList movies={movies} /> // Використовуємо компонент MovieListSearch
-      ) : (
-        !loading && <p className={s.SearchForm_mesage}>No movies found</p>
-      )}
-    </div>
+    <>
+      <div className={s.MoviesPage_w}>
+        <SearchForm onSubmit={handleChangeQuery} />
+        {loading && <Loader />}
+        {error && <p className={s.error}>{error}</p>}
+        {movies.length > 0 ? (
+          <MovieList movies={movies} /> // Використовуємо компонент MovieListSearch
+        ) : (
+          !loading && <p className={s.SearchForm_mesage}>No movies found</p>
+        )}
+      </div>
+    </>
   );
 };
 

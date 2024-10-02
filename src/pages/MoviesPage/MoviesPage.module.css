@@ -7,12 +7,19 @@
   text-align: center;
   background-color: #e79494;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 .SearchForm_mesage {
-  margin: 0 auto;
   font-size: 22px;
   padding: 0;
   color: #d51212;
+  margin: 0 auto;
+  margin-left: 10px;
+  position: absolute;
+
+  top: 50%;
+  right: 45%;
+  transition: background-color 0.3s ease;
 }
 .movies_list {
   display: flex;

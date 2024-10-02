@@ -20,36 +20,27 @@
   transition: background-color 0.3s ease;
 }
 .list_title {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
   text-align: center;
   color: #ef3939;
+  opacity: 40%;
   padding: 0;
+  margin-left: 50px;
   &:hover {
     color: #710909;
   }
   text-decoration: underline;
   transition: color 0.3s ease;
   cursor: pointer;
-  margin-left: 50px;
 }
 .create_linedown {
-  padding-left: 5px;
-  /* необходим для формирования позиций линии */
-  position: relative;
-  /* весь блок будет занимать ширину по размеру контента в нём */
-  display: inline-block;
-}
-.create_linedown:before {
-  content: " ";
-  background: #b51815;
-  width: 900px;
-  height: 8px;
-
-  top: 350px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-150%) translateY(50%);
-
+  width: 8px;
+  height: 720px;
+  background: linear-gradient(to bottom, #141414, #e41c15);
+  margin-left: 100px;
   transition: transform 0.3s ease;
+}
+.create_linedown:hover::after {
+  transform: translateY(-100%);
 }

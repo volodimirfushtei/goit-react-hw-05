@@ -112,7 +112,7 @@ const MovieDetailsPage = () => {
         )}
         <Outlet context={{ cast: movie.credits?.cast, reviews }} />
         <Link className={s.Link} to={backLink.current}>
-          Home
+          Go back
         </Link>
       </div>
     </div>

@@ -1,17 +1,9 @@
-import {
-  useOutletContext,
-  useParams,
-  useLocation,
-  Link,
-} from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useOutletContext, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import s from "./MovieReviews.module.css";
 const MovieReviews = () => {
   const { reviews } = useOutletContext();
   const { movieId } = useParams();
-
-  const location = useLocation();
-  const backLink = useRef(location.state?.from ?? "/movies");
 
   useEffect(() => {
     if (!movieId) return;
@@ -25,9 +17,6 @@ const MovieReviews = () => {
 
   return (
     <div className={s.reviews_container}>
-      <Link to={backLink.current} className={s.goBack}>
-        Go back
-      </Link>
       <h3 className={s.reviews}>Reviews</h3>
       <ul className={s.reviews_list}>
         {reviews.map((review) => (

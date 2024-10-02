@@ -12,6 +12,16 @@
   color: #333;
   transition: background-color 0.3s ease;
   width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2 solid #535358;
 }
 .movies_list_item {
   display: flex;
@@ -39,9 +49,7 @@
 }
 .create_line {
   padding-left: 5px;
-  /* необходим для формирования позиций линии */
   position: relative;
-  /* весь блок будет занимать ширину по размеру контента в нём */
   display: inline-block;
 }
 

@@ -20,7 +20,13 @@
   justify-content: left;
   align-items: center;
   align-self: center;
-  background-color: #94b9f5;
+  & {
+    background-image: url("../../images/40-min.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
   padding: 10px;
   border-radius: 5px;
   margin: 15px 10px 10px 10px;

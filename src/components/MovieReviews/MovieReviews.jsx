@@ -11,7 +11,7 @@ const MovieReviews = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
-  const backLink = useRef(location.state?.from || "/movies");
+  const backLink = useRef(location.state?.from ?? "/movies");
 
   useEffect(() => {
     if (!movieId) return;

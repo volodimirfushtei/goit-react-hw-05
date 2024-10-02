@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MovieListSearch from "../../components/MovieListSearch/MovieListSearch";
+import MovieList from "../../components/MovieList/MovieList";
 import s from "./HomePage.module.css";
 import Loader from "../../../src/components/Loader/Loader";
 import fetchApi from "../../servises/Api";
@@ -37,7 +37,9 @@ const HomePage = () => {
 
   return (
     <div className={s.MovieList}>
-      <MovieListSearch movies={movies} />
+      <h1 className={s.list_title}>Trending today</h1>
+      <MovieList movies={movies} />
+      <div className={s.create_linedown}></div>
     </div>
   );
 };

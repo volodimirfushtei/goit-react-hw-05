@@ -1,5 +1,11 @@
-import { Outlet, useParams, useLocation, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {
+  Outlet,
+  useParams,
+  useLocation,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import fetchApi from "../../servises/Api";
 import s from "./MovieDetailsPage.module.css";
 import Loader from "../../../src/components/Loader/Loader";
@@ -9,6 +15,7 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,8 +23,14 @@ const MovieDetailsPage = () => {
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
+  const backLink = useRef(location.state?.from ?? "/movies");
+
   useEffect(() => {
     if (!movieId) return;
+    if (!location.state) {
+      navigate("/movies");
+      return;
+    }
 
     const fetchMovieDetails = async () => {
       setLoading(true);
@@ -36,7 +49,7 @@ const MovieDetailsPage = () => {
     };
 
     fetchMovieDetails();
-  }, [movieId]);
+  }, [movieId, location.state, navigate]);
 
   if (loading) {
     return <Loader />;
@@ -97,8 +110,8 @@ const MovieDetailsPage = () => {
             Reviews
           </Link>
         )}
-        <Outlet context={{ cast: movie.credits.cast, reviews }} />
-        <Link className={s.Link} to="/" state={{ from: location.pathname }}>
+        <Outlet context={{ cast: movie.credits?.cast, reviews }} />
+        <Link className={s.Link} to={backLink.current}>
           Home
         </Link>
       </div>

@@ -3,6 +3,7 @@ import {
   useParams,
   useLocation,
   Link,
+  useNavigate,
 } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import s from "./MovieCast.module.css";
@@ -10,7 +11,8 @@ const MovieCast = () => {
   const { cast } = useOutletContext();
   const { movieId } = useParams();
   const location = useLocation();
-  const backLink = useRef(location.state?.from || "/movies");
+  const navigate = useNavigate();
+  const backLink = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     if (!movieId) return;
@@ -25,7 +27,11 @@ const MovieCast = () => {
 
   return (
     <div className={s.container_cast}>
-      <Link to={backLink.current} className={s.goBack}>
+      <Link
+        to={backLink.current}
+        className={s.goBack}
+        onClick={() => navigate(backLink.current)}
+      >
         Go back
       </Link>
       <h3 className={s.actors}>Actors</h3>

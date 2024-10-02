@@ -6,7 +6,7 @@ import SearchForm from "../../components/SearchForm/SearchForm.jsx";
 import fetchApi from "../../servises/Api.js";
 import { useSearchParams } from "react-router-dom"; // Додано для навігації
 import Loader from "../../../src/components/Loader/Loader";
-import MovieListSearch from "../../components/MovieListSearch/MovieListSearch";
+import MovieList from "../../components/MovieList/MovieList";
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("query") || "");
@@ -50,7 +50,7 @@ const MoviesPage = () => {
       {loading && <Loader />}
       {error && <p className={s.error}>{error}</p>}
       {movies.length > 0 ? (
-        <MovieListSearch movies={movies} /> // Використовуємо компонент MovieListSearch
+        <MovieList movies={movies} /> // Використовуємо компонент MovieListSearch
       ) : (
         !loading && <p className={s.SearchForm_mesage}>No movies found</p>
       )}

@@ -105,10 +105,36 @@
   }
 }
 .avalible_cast {
-  font-size: var(--font-small);
-  margin-bottom: 10px;
+  font-size: var(--font-medium);
+  display: block;
   transition: color 0.3s ease;
   color: brown;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  padding: 0;
+
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #ddd;
+  }
+  &:active {
+    background-color: #ddd;
+  }
+  &:focus {
+    outline: none;
+    background-color: #ddd;
+  }
+  &:hover {
+    color: #6b95e8;
+  }
 }
 .container_cast {
   display: flex;
@@ -116,7 +142,7 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;
+  padding: 0;
   max-width: 1470px;
   margin: 0 auto;
 }

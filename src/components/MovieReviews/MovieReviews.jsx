@@ -12,7 +12,7 @@ const MovieReviews = () => {
     return <p>No reviews </p>;
   }
   if (!reviews || reviews.length === 0) {
-    return <p className={s.avalible_reviews}>No reviews available</p>;
+    return <p className={s.avalible_reviews}>No reviews</p>;
   }
 
   return (

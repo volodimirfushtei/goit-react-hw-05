@@ -5,7 +5,7 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import fetchApi from "../../servises/Api";
 import s from "./MovieDetailsPage.module.css";
 import Loader from "../../../src/components/Loader/Loader";
@@ -23,7 +23,7 @@ const MovieDetailsPage = () => {
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 
-  const backLink = useRef(location.state?.from ?? "/movies");
+  const backLink = location.state?.from ?? "/movies";
 
   useEffect(() => {
     if (!movieId) return;
@@ -111,7 +111,11 @@ const MovieDetailsPage = () => {
           </Link>
         )}
         <Outlet context={{ cast: movie.credits?.cast, reviews }} />
-        <Link className={s.Link} to={backLink.current}>
+        <Link
+          className={s.Link}
+          to={backLink}
+          state={{ from: location.pathname }}
+        >
           Go back
         </Link>
       </div>

@@ -28,7 +28,7 @@
   overflow-y: scroll;
   max-height: 400px;
   margin: 0;
-  width: 100%;
+  max-width: 1470px;
 }
 .author {
   font-weight: bold;
@@ -58,13 +58,4 @@
   transition: color 0.3s ease;
   color: brown;
   text-align: right;
-}
-.goBack {
-  font-size: large;
-  text-decoration: underline;
-  color: #333;
-  transition: color 0.3s ease;
-  &:hover {
-    color: #7f7ad7;
-  }
 }

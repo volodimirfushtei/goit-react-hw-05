@@ -4,44 +4,42 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  width: auto;
-
   padding: 20px;
   list-style-type: none;
   background-color: inherit;
   color: #333;
   transition: background-color 0.3s ease;
   width: 100%;
+  width: auto;
   position: absolute;
   top: 20%;
   left: 0;
   right: 0;
-  max-height: 600px;
+  max-height: 680px;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
   background-color: transparent;
   border-radius: 5px;
   border: 2 solid #535358;
 }
 .movies_list_item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 4px;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 450px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400px;
   padding: 2px;
-  font-size: medium;
+  font-size: larger;
   font-weight: bold;
   padding-left: 5px;
-  color: #faf7f7;
+  color: #f2f4f5;
   border-radius: 5px;
 
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: #41395e;
-    transform: scale(1.02);
+    background: linear-gradient(transparent, #6454b3);
+    transform: scale(1.01);
   }
 }
 .MoviesPage_w {
@@ -61,3 +59,23 @@
   top: 25px;
   position: absolute;
 } */
+.create_line {
+  border-left: 4px solid transparent; /* Колір та товщина лінії */
+  height: 26px; /* Висота лінії */
+  margin-right: 20px;
+  border-radius: 5px; /* Відступи з боків, якщо потрібно */
+}
+.movies_list_item:hover {
+  transform: scale(1.02);
+}
+
+.movies_list_item:hover > :nth-child(1) {
+  border-left: 6px solid #e93e3e;
+
+  /* Зміна кольору фону для першого дочірнього елемента */
+}
+
+.Link {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}

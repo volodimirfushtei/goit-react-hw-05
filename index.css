@@ -38,7 +38,7 @@ body {
     sans-serif;
   background: linear-gradient(to bottom, #282e48, #685fa1);
   min-height: 100vh;
-
+  overflow: hidden;
   font-style: normal;
 }
 

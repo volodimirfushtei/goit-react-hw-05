@@ -1,6 +1,7 @@
 .movies_list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+
   gap: 6px;
   justify-content: center;
   align-items: center;
@@ -21,20 +22,22 @@
   background-color: transparent;
   border-radius: 5px;
   border: 2 solid #535358;
+  transition: background-color 0.3s ease;
 }
 .movies_list_item {
   display: flex;
   flex-direction: row;
-  gap: 4px;
+
   justify-content: flex-start;
   align-items: center;
-  width: 450px;
-  padding: 2px;
+  width: 150px;
+
   font-size: larger;
   font-weight: bold;
-  padding-left: 5px;
+
   color: #f2f4f5;
   border-radius: 5px;
+  cursor: pointer;
 
   transition: background-color 0.3s ease;
   &:hover {
@@ -78,4 +81,9 @@
 .Link {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
+}
+.movie_image {
+  width: auto;
+  height: 220px;
+  border-radius: 5px;
 }

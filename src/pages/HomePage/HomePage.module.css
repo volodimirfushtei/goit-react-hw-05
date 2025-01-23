@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 820px;
+  height: 980px;
   margin-top: 20px;
   padding: 0;
   list-style-type: none;
@@ -27,9 +27,10 @@
   font-weight: bold;
   text-align: center;
   color: #ef3939;
-  opacity: 40%;
+  opacity: 60%;
   padding: 0;
-  margin-left: 50px;
+  position: absolute;
+  top: 10%;
   &:hover {
     color: #710909;
   }
@@ -38,12 +39,13 @@
   cursor: pointer;
 }
 .create_linedown {
-  width: 8px;
-  height: 720px;
-  background: linear-gradient(to bottom, #141414, #e41c15);
-  margin-left: 100px;
+  width: 1520px;
+  height: 10px;
+  background: linear-gradient(to left, #141414, #e41c15);
+  margin-left: 20px;
+  margin-top: 450px;
   transition: transform 0.3s ease;
 }
 .create_linedown:hover::after {
-  transform: translateY(-100%);
+  transform: translateX(0);
 }

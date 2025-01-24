@@ -31,10 +31,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 150px;
-
   font-size: larger;
   font-weight: bold;
-
   color: #f2f4f5;
   border-radius: 5px;
   cursor: pointer;
@@ -74,8 +72,6 @@
 
 .movies_list_item:hover > :nth-child(1) {
   border-left: 6px solid #e93e3e;
-
-  /* Зміна кольору фону для першого дочірнього елемента */
 }
 
 .Link {
@@ -83,7 +79,7 @@
   transition: background-color 0.3s ease;
 }
 .movie_image {
-  width: auto;
-  height: 220px;
+  width: 140px;
+  height: auto;
   border-radius: 5px;
 }

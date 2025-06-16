@@ -5,11 +5,6 @@ const MovieListSearch = ({ movies }) => {
   const location = useLocation(); // Отримуємо поточне місцезнаходження
 
   // Функція для перевірки коректності дати
-  const isValidDate = (dateString) => {
-    const date = new Date(dateString);
-    return !isNaN(date.getTime());
-  };
-
   return (
     <ul className={s.movies_list}>
       {movies.map((movie, index) => (
@@ -23,19 +18,28 @@ const MovieListSearch = ({ movies }) => {
             state={{ from: location }}
           >
             {/* Фото фільму */}
-            {movie.poster_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className={s.movie_image}
-              />
-            )}
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : "https://dummyimage.com/300x450/2c2c2c/ffffff&text=No+Poster"
+              }
+              alt={movie.title || "No title"}
+              className={s.movie_image}
+              loading="lazy"
+            />
             <div>
-              {movie.release_date && isValidDate(movie.release_date) && (
+              {movie.release_date && !isNaN(Date.parse(movie.release_date)) ? (
                 <span className={s.release_date}>
                   ({new Date(movie.release_date).getFullYear()})
                 </span>
+              ) : (
+                <span className={s.release_date}> (N/A) </span>
               )}
+
+              <p className={s.movie_rating}>
+                Rating: {movie.vote_average.toFixed(1)}
+              </p>
             </div>
           </Link>
         </li>

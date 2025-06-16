@@ -31,7 +31,6 @@ const SearchForm = ({ onSubmit }) => {
         <Form className={s.Form}>
           <div className={s.Form_container}>
             <IoIosSearch className={s.icon} />
-
             <Field
               type="text"
               autoComplete="off"

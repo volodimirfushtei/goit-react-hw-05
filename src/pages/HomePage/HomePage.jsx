@@ -38,7 +38,6 @@ const HomePage = () => {
     <div className={s.MovieList}>
       <h1 className={s.list_title}>Trending today</h1>
       <MovieList movies={movies} />
-
       <div className={s.create_linedown}></div>
     </div>
   );

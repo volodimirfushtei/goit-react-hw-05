@@ -44,7 +44,7 @@
   height: 10px;
   background: linear-gradient(to left, #141414, #e41c15);
   margin-left: 20px;
-  margin-top: 740px;
+  margin-top: 780px;
   transition: transform 0.3s ease;
 }
 .create_linedown:hover::after {

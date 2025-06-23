@@ -4,7 +4,9 @@ import s from "./MovieList.module.css";
 const MovieListSearch = ({ movies }) => {
   const location = useLocation(); // Отримуємо поточне місцезнаходження
 
-  // Функція для перевірки коректності дати
+  if (!movies || movies.length === 0) {
+    return <p>No film</p>;
+  }
   return (
     <ul className={s.movies_list}>
       {movies.map((movie, index) => (

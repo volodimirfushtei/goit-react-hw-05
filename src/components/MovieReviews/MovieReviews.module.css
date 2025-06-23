@@ -4,7 +4,7 @@
   margin-top: 20px;
   padding: 0;
   list-style-type: none;
-  color: #161515;
+  color: #fefcfc;
   margin: 0 auto;
 }
 .reviews_container {
@@ -15,6 +15,7 @@
   gap: 10px;
   padding: 0;
   max-width: 1470px;
+  background: linear-gradient(to bottom, #0f173a, #7971b3);
   margin: 0 auto;
 }
 .reviews_list {
@@ -28,17 +29,18 @@
   overflow-y: scroll;
   max-height: 400px;
   margin: 0;
+  background: linear-gradient(to bottom, #8c9dec, #c7c2ee);
   max-width: 1470px;
 }
 .author {
   font-weight: bold;
   margin-bottom: 5px;
   text-align: left;
-  color: #444;
+  color: #dbd5d5;
   font-size: var(--font-medium);
   transition: color 0.3s ease;
   &:hover {
-    color: #888;
+    color: #f9f9f9;
   }
 }
 .content {
@@ -46,9 +48,10 @@
   margin-bottom: 10px;
   line-height: 1.5;
 
+  color: #302f2f;
   transition: color 0.3s ease;
   &:hover {
-    color: #888;
+    color: #0a0a0a;
   }
   text-align: left;
 }

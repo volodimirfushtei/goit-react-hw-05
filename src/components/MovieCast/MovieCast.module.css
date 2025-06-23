@@ -26,8 +26,10 @@
   margin-bottom: 10px;
   font-size: medium;
   transition: color 0.3s ease;
+
+  color: #faf9f9;
   &:hover {
-    color: #e8ebee;
+    color: #c2dbf5;
   }
   @media screen and (max-width: 375px) {
     width: 100%;
@@ -37,7 +39,7 @@
   justify-content: center;
   flex-wrap: wrap;
   box-shadow: rgb(58, 58, 57);
-  background-color: rgb(24, 25, 26);
+  background-color: rgb(92, 88, 163);
   border-radius: 5px;
   text-decoration: none;
   font-size: 1.5rem;
@@ -49,7 +51,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   gap: 5px;
   height: auto;
-  background-color: #e5e5e9;
+
   width: 140px;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
@@ -72,6 +74,7 @@
   border-radius: 5%;
   object-fit: fill;
   flex-shrink: 0;
+  transition: box-shadow 0.3s ease;
   &:hover {
     box-shadow: inset 4px 4px;
     transition: box-shadow 0.3s ease;
